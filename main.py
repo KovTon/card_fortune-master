@@ -35,7 +35,7 @@ def generate_deck(suits: List[str], values: List[int]):
     return deck
 
 
-def generate_standart_deck():
+def generate_standard_deck():
     suits = ["♠", "♦", "♥", "♣"]
     values = list(range(2, 15, 1))
     deck = generate_deck(suits, values)
@@ -69,14 +69,10 @@ def cards_are_equal(card_1: Card, card_2: Card) -> bool:
 def start_round(deck: List[Card], player_1: Player, player_2: Player):
     player_1_card = pull_random_card(deck)
     player_2_card = pull_random_card(deck)
-    # 64 строка была 1-4 главах? =
     if cards_are_equal(player_1_card, player_2_card):
         return
 
     if player_1_card.value > player_2_card.value:
-        # player_1.append(player_1_card)
-        # получить руку
-        # непонятно
         hand_1: List[Card] = player_1.hand
         # добавить в руку
         hand_1.append(player_1_card)
@@ -92,7 +88,7 @@ def introduce_game(deck):
 
 
 def start_game_loop(deck: List[Card], player_1: Player, player_2: Player):
-    while deck:  # неявная конвертацияиз list в bool. Явная когда вызвали
+    while deck:  # неявная конвертация из list в bool. Явная когда вызвали
         start_round(deck, player_1, player_2)
 
 
@@ -108,9 +104,9 @@ def define_winner(player_1: Player, player_2: Player) -> Optional[Player]:
     return None
 
 
-def anounce_winner(winner: Optional[Player]) -> None:
+def announce_winner(winner: Optional[Player]) -> None:
     if winner is None:
-        print('draww')
+        print('draw')
     else:
         print(f'winner {winner.name}')
 
@@ -120,11 +116,11 @@ def main():
     # player_2 = {'name': 'Pavel', 'hand': []}
     player_1 = Player('Pavel')
     player_2 = Player('Ivan')
-    deck = generate_standart_deck()
+    deck = generate_standard_deck()
     random.shuffle(deck)
     introduce_game(deck)
     start_game_loop(deck, player_1, player_2)
-    anounce_winner(define_winner(player_1, player_2))
+    announce_winner(define_winner(player_1, player_2))
     show_results(player_1, player_2)
 
 
