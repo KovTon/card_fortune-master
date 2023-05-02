@@ -28,6 +28,7 @@ def idea_compare_realization_using_class():
     card_2 = Card(12, "Q", "♣")
     return card_1.compare(card_2)
 
+
 dangeon = [[[]], [[], []], [[], [[]], []]]
 
 
