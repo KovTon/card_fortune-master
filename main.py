@@ -8,6 +8,14 @@ class Card():
         self.rank = rank
         self.suit = suit
 
+    def compare(self, another_card):
+        if self.value == another_card.value:
+            return "equal"
+        if self.value > another_card.value:
+            return self.value
+        if self.value < another_card.value:
+            return another_card.value
+
 
 class Player:
     def __init__(self, name: str):
@@ -122,7 +130,9 @@ def main():
     start_game_loop(deck, player_1, player_2)
     announce_winner(define_winner(player_1, player_2))
     show_results(player_1, player_2)
+    print(player_1.hand)
 
 
 if __name__ == '__main__':
     main()
+
