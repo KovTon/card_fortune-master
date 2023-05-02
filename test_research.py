@@ -1,3 +1,6 @@
+from main import Card
+
+
 def choose_data_structure_for_card():
 
     card_str_1 = "Q♣12"
@@ -20,6 +23,11 @@ def choose_data_structure_for_card():
     print(card_str_3)
 
 
+def idea_compare_realization_using_class():
+    card_1 = Card(11, "V", "♣")
+    card_2 = Card(12, "Q", "♣")
+    return card_1.compare(card_2)
+
 dangeon = [[[]], [[], []], [[], [[]], []]]
 
 
@@ -36,8 +44,9 @@ player_2 = {
     'date': '17.03.2023',
     'place': 1
 }
+# Подготовка класса player через имитацию словарем.
+# print(player_1)
+# # print(player_1[name])
+# print(player_1['name'])
+# print(player_2['name'])
 
-print(player_1)
-# print(player_1[name])
-print(player_1['name'])
-print(player_2['name'])
